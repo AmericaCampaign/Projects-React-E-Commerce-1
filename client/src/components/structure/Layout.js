@@ -1,12 +1,12 @@
 import React from 'react'
-import {domainData} from '../../lib/propTypes'
+import * as AppPropTypes from '../../lib/propTypes'
 import LoadingOverlay from '../presentation/LoadingOverlay'
 import Main from './Main'
-import Header from './Header'
+import Header from './header/Header'
 import Footer from './Footer'
 
 const propTypes = {
-  domainData
+  domainData: AppPropTypes.domainData
 }
 
 const Layout = (props) =>

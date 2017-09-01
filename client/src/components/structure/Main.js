@@ -1,16 +1,27 @@
 import React from 'react'
 import { Route, Switch } from 'react-router-dom'
-import {domainData} from '../../lib/propTypes'
+import * as AppPropTypes from '../../lib/propTypes'
 import Home from '../pages/Home'
 import About from '../pages/About'
 import ProductsPage from '../pages/products/ProductsPage'
 
 const propTypes = {
-  domainData
+  domainData: AppPropTypes.domainData
+}
+
+const styles = {
+  main: {
+    position: 'fixed',
+    top: 50,
+    left: 0,
+    right: 0,
+    bottom: 25,
+    overflow: 'scroll'
+  }
 }
 
 const Main = (props) =>
-  <main>
+  <main style={styles.main}>
     <Switch>
       <Route path='/' exact component={Home} />
       <Route path='/about' component={About} />
