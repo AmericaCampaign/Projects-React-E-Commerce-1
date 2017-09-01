@@ -1,5 +1,5 @@
 import React from 'react'
-import { Route, Switch } from 'react-router-dom'
+import {Route} from 'react-router-dom'
 import * as AppPropTypes from '../../lib/propTypes'
 import Home from '../pages/Home'
 import About from '../pages/About'
@@ -22,11 +22,9 @@ const styles = {
 
 const Main = (props) =>
   <main style={styles.main}>
-    <Switch>
-      <Route path='/' exact component={Home} />
-      <Route path='/about' component={About} />
-      <Route path='/products' render={() => <ProductsPage domainData={props.domainData} />} />
-    </Switch>
+    <Route path='/' exact component={Home} />
+    <Route path='/about' component={About} />
+    <Route path='/products' render={() => <ProductsPage domainData={props.domainData} />} />
   </main>
 
 Main.propTypes = propTypes

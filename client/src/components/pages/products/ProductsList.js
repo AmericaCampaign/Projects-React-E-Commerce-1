@@ -1,6 +1,6 @@
 import React from 'react'
-import {Link} from 'react-router-dom'
 import {domainData} from '../../../lib/propTypes'
+import ButtonLink from '../../presentation/ButtonLink'
 import ProductCard from './ProductCard'
 
 const propTypes = {
@@ -9,7 +9,7 @@ const propTypes = {
 
 const ProductsList = (props) =>
   <div>
-    <Link to='/products/add'>Add Product</Link>
+    <ButtonLink to='/products/add' primary>Add Product</ButtonLink>
     {
       props.domainData.products.map((p) =>
         <ProductCard
