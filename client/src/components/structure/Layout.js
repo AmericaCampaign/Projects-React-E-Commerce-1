@@ -2,7 +2,7 @@ import React from 'react'
 import * as AppPropTypes from '../../lib/propTypes'
 import LoadingOverlay from '../presentation/LoadingOverlay'
 import Main from './Main'
-import Header from './Header'
+import Header from './header/Header'
 import Footer from './Footer'
 
 const propTypes = {
@@ -14,7 +14,7 @@ const Layout = (props) =>
     ? (
       <div id='layout'>
         <Header />
-        <Main />
+        <Main domainData={props.domainData} />
         <Footer />
       </div>
     ) : (
