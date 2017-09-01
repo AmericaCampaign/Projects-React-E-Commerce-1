@@ -1,8 +1,8 @@
 import React from 'react'
-import {domainData} from '../../lib/propTypes'
+import * as AppPropTypes from '../../lib/propTypes'
 
 const propTypes = {
-  domainData
+  domainData: AppPropTypes.domainData
 }
 
 const Layout = (props) => (
