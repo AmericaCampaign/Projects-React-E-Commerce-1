@@ -11,7 +11,7 @@ class AddProductContainer extends Component {
     name: '',
     category: '',
     image: '',
-    price: 0
+    price: '0'
   }
 
   onNameChanged = (event) => this.setState({name: event.target.value})
@@ -21,8 +21,11 @@ class AddProductContainer extends Component {
   onImageChanged = (event) => this.setState({image: event.target.value})
 
   onPriceChanged = (event) => {
-    let price = (parseFloat(event.target.value) || 0)
-    this.setState({price: price})
+    const price = event.target.value.replace(/^0+/, '').replace(/^\./, '0.') || '0'
+    const isNumberValid = /^\d*\.?\d{0,2}?$/.test(price)
+    if (isNumberValid) {
+      this.setState({price})
+    }
   }
 
   onSubmit = (event) => {
