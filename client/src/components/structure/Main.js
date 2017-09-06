@@ -3,7 +3,7 @@ import {Route} from 'react-router-dom'
 import * as AppPropTypes from '../../lib/propTypes'
 import About from '../pages/About'
 import Home from '../pages/Home'
-import Products from '../pages/Products'
+import Products from '../pages/products/Products'
 
 const propTypes = {
   domainData: AppPropTypes.domainData
