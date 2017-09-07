@@ -10,7 +10,8 @@ const propTypes = {
   onImageChanged: PropTypes.func.isRequired,
   price: PropTypes.string.isRequired,
   onPriceChanged: PropTypes.func.isRequired,
-  onSubmit: PropTypes.func.isRequired
+  onSubmit: PropTypes.func.isRequired,
+  onCancel: PropTypes.func.isRequired
 }
 
 const AddProductForm = (props) =>
@@ -19,7 +20,12 @@ const AddProductForm = (props) =>
     <p>Category: <input type='text' value={props.category} onChange={props.onCategoryChanged} /></p>
     <p>Image: <input type='text' value={props.image} onChange={props.onImageChanged} /></p>
     <p>Price: <input type='text' value={props.price} onChange={props.onPriceChanged} /></p>
-    <input type='submit' value='Submit' />
+    <input
+      type='submit'
+      value='Submit'
+      disabled={!props.name || !props.category || !props.image || props.price <= 0}
+    />
+    <button onClick={props.onCancel}>Cancel</button>
   </form>
 
 AddProductForm.propTypes = propTypes

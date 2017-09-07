@@ -5,8 +5,14 @@ const propTypes = {
   product: AppPropTypes.product
 }
 
+const styles = {
+  div: {
+
+  }
+}
+
 const ProductCard = ({product}) =>
-  <div>
+  <div style={styles.div}>
     <h1>{product.name}</h1>
     <p>{product.category}</p>
     <p><img src={product.image} alt={product.name} /></p>
