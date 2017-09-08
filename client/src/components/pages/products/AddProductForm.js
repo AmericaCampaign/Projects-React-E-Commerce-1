@@ -25,7 +25,12 @@ const AddProductForm = (props) =>
       value='Submit'
       disabled={!props.name || !props.category || !props.image || props.price <= 0}
     />
-    <button onClick={props.onCancel}>Cancel</button>
+    <button
+      type='button'
+      onClick={props.onCancel}
+    >
+      Cancel
+    </button>
   </form>
 
 AddProductForm.propTypes = propTypes
