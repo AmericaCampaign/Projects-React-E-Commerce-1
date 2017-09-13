@@ -6,6 +6,7 @@ const getAllProducts = (callback) => {
   fetch('/api/products', options)
     .then(response => response.json())
     .then(json => callback(json.data))
+    .catch(err => console.log(err))
 }
 
 const addProduct = (newProduct, callback) => {
