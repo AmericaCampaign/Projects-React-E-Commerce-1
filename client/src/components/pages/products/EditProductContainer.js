@@ -36,7 +36,7 @@ class EditProductContainer extends Component {
   onSubmit = (event) => {
     event.preventDefault()
     this.props.domainData.updateProduct(this.state)
-    this.props.history.push('/products')
+      .then(() => this.props.history.push('/products'))
   }
 
   onCancel = () => this.props.history.push('/products')
