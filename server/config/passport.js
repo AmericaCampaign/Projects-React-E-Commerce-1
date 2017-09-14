@@ -26,7 +26,6 @@ module.exports = (passport) => {
       }
 
       if (user) {
-        console.log('duplicate user')
         return done(null, false, {
           message: `A user with that email already exists: ${email}`
         })
