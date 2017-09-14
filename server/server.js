@@ -15,6 +15,7 @@ mongoose.connect('mongodb://localhost/e-commerce')
 
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
+
 app.use(session({
  secret: 'blahblahblah'
 })); // session secret
