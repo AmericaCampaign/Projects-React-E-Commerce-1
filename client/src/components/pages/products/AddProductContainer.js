@@ -17,40 +17,34 @@ class AddProductContainer extends Component {
     price: '0'
   }
 
-  onNameChanged = (event) => this.setState({name: event.target.value})
+  callbacks = {
+    onNameChanged: (event) => this.setState({name: event.target.value}),
 
-  onCategoryChanged = (event) => this.setState({category: event.target.value})
+    onCategoryChanged: (event) => this.setState({category: event.target.value}),
 
-  onImageChanged = (event) => this.setState({image: event.target.value})
+    onImageChanged: (event) => this.setState({image: event.target.value}),
 
-  onPriceChanged = (event) => {
-    const price = event.target.value.replace(/^0+/, '').replace(/^\./, '0.') || '0'
-    const isNumberValid = /^\d*\.?\d{0,2}?$/.test(price)
-    if (isNumberValid) {
-      this.setState({price})
-    }
+    onPriceChanged: (event) => {
+      const price = event.target.value.replace(/^0+/, '').replace(/^\./, '0.') || '0'
+      const isNumberValid = /^\d*\.?\d{0,2}?$/.test(price)
+      if (isNumberValid) {
+        this.setState({price})
+      }
+    },
+
+    onSubmit: (event) => {
+      event.preventDefault()
+      this.props.domainData.addProduct(this.state) // save to the db
+        .then(() => this.props.history.push('/products'))
+    },
+
+    onCancel: () => this.props.history.push('/products')
   }
-
-  onSubmit = (event) => {
-    event.preventDefault()
-    this.props.domainData.addProduct(this.state) // save to the db
-      .then(() => this.props.history.push('/products'))
-  }
-
-  onCancel = () => this.props.history.push('/products')
 
   render () {
     return <AddProductForm
-      name={this.state.name}
-      onNameChanged={this.onNameChanged}
-      category={this.state.category}
-      onCategoryChanged={this.onCategoryChanged}
-      image={this.state.image}
-      onImageChanged={this.onImageChanged}
-      price={this.state.price}
-      onPriceChanged={this.onPriceChanged}
-      onSubmit={this.onSubmit}
-      onCancel={this.onCancel}
+      {...this.state}
+      {...this.callbacks}
     />
   }
 }
